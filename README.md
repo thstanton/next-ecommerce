@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Flowmazon E-Commerce App
 
-## Getting Started
+## Description
 
-First, run the development server:
+I built this app following the excellent [Next.js E-Commerce Tutorial from freeCodeCamp](https://www.youtube.com/watch?v=K4ziF0MhbLc&t=15076s). I followed this tutorial in order to learn to use TypeScript, as well as to build my knowledge of server components in Next.js. Although the vast majority of this project was built by coding along with the tutorial, I still needed to troubleshoot and debug certain issues.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Learning
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This app has given me a much greater understanding of TypeScript, particularly using Interfaces to specify the types of props in React/Next.js components. Going into this project, I was fairly unclear on the benefits of TypeScript, however I have come to really appreciate the autocomplete and error handling it provides.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I had not used Prisma before, previously using Mongoose to interface with MongoDB. I like the way that it handles foreign keys and enables easier updating of related models, as well as its very clean layout of schemas.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+I was also particularly impressed with the way server components and client components are very carefully utilised in this project, to take advantage of Next.js's caching features. I had tried to use this in a previous project, Venturo, and found it quite challenging to understand how client components could interact with server components, and how to manage user interactivity within server components.
 
-## Learn More
+I also like how this project uses url parameters to handle state with search queries and pagination. This is not something that had previously occurred to me and is something that I intend to take forward in future projects of my own.
 
-To learn more about Next.js, take a look at the following resources:
+## Challenges
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The main challenge that I encountered with this project was implementing Next-Auth. The tutorial suggested exporting the ``authOptions`` object in the Next-Auth route.ts file, to ensure that these could be used in other components. However, this is no longer possible and TypeScript threw an error at build time saying that this was not a valid object to export. I got around this by creating a separate ``authOptions`` library, exporting the object from there, and importing it into the route.ts file instead.
